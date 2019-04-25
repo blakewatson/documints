@@ -1,29 +1,26 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <div id="app">
+        <nav class="navbar has-background-dark has-text-white" aria-label="Main Navigation">
+            <div class="navbar-brand">
+                <h1 class="site-title title is-marginless has-text-white">Docu<span class="has-text-primary">Mints</span></h1>
+                <router-link to="/" class="navbar-item has-text-white">List</router-link>
+                <router-link to="/detail" class="navbar-item has-text-white">Detail</router-link>
+            </div>
+        </nav>
+        <router-view/>
     </div>
-    <router-view/>
-  </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
+<script lang="ts">
+import Vue from 'vue'
+export default Vue.extend({
+    name: 'App',
+    created() {
+        this.$store.dispatch('init');
     }
-  }
-}
+});
+</script>
+
+<style lang="sass">
+    @import 'assets/app';
 </style>
