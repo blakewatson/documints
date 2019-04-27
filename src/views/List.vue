@@ -1,9 +1,9 @@
 <template>
-    <div class="section">
+    <section class="section">
         <div class="container">
             <DocTable :documents="documents" />
         </div>
-    </div>
+    </section>
 </template>
 
 <script lang="ts">

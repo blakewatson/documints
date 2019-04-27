@@ -7,7 +7,7 @@
             <table class="table is-fullwidth">
                 <thead>
                     <tr class="is-size-7">
-                        <th>Title</th>
+                        <th class="doctable-title-col">Title</th>
                         <th>Description</th>
                         <th>Tags</th>
                         <th>Last viewed</th>
@@ -16,13 +16,15 @@
                 </thead>
                 <tbody>
                     <tr v-for="doc in documents" :key="doc.id">
-                        <td>{{ doc.name }}</td>
+                        <td><router-link :to="{ name: 'doc', params: { id: doc.id } }">{{ doc.name }}</router-link></td>
                         <td>{{ doc.description }}</td>
                         <td>
-                            <span class="tag is-info" v-for="tag in doc.tags">{{ tag }}</span>
+                            <div class="tags">
+                                <span class="tag is-dark" v-for="tag in doc.tags">{{ tag }}</span>
+                            </div>
                         </td>
                         <td>{{ doc.lastViewed }}</td>
-                        <td>{{ doc.expiration }}</td>
+                        <td>{{ doc.expirationDate }}</td>
                     </tr>
                 </tbody>
             </table>

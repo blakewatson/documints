@@ -11,7 +11,13 @@ interface Documint {
     tags: string[];
 }
 
+interface NewTags {
+    docId: Uuid,
+    tags: string[]
+}
+
 export {
     Uuid,
-    Documint
+    Documint,
+    NewTags
 }

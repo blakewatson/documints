@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Vuex, { Store } from 'vuex';
-import { Documint } from '@/types';
+import { Documint, NewTags } from '@/types';
 
 Vue.use(Vuex);
 
@@ -8,9 +8,25 @@ export default new Vuex.Store({
     state: {
         documents: Array<Documint>()
     },
+    getters: {
+        getDocumentById(state): Function {
+            return (id: number) => {
+                return state.documents.find(document =>  {
+                    return document.id === id;
+                });
+            }
+        }
+    },
     mutations: {
         addDocuments(state, payload: Documint[]): void {
             state.documents.push(...payload);
+        },
+
+        setTags(state, payload: NewTags): void {
+            var indexOfDoc = state.documents.findIndex((document: Documint): boolean =>  {
+                return document.id == payload.docId;
+            });
+            Vue.set(state.documents[indexOfDoc], 'tags', payload.tags);
         }
     },
     actions: {

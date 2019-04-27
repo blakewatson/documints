@@ -4,7 +4,6 @@
             <div class="navbar-brand">
                 <h1 class="site-title title is-marginless has-text-white">Docu<span class="has-text-primary">Mints</span></h1>
                 <router-link to="/" class="navbar-item has-text-white">List</router-link>
-                <router-link to="/detail" class="navbar-item has-text-white">Detail</router-link>
             </div>
         </nav>
         <router-view/>

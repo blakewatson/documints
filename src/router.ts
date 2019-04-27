@@ -14,12 +14,12 @@ export default new Router({
             component: List
         },
         {
-            path: '/detail',
-            name: 'detail',
+            path: '/doc/:id',
+            name: 'doc',
             // route level code-splitting
-            // this generates a separate chunk (detail.[hash].js) for this route
+            // this generates a separate chunk (doc.[hash].js) for this route
             // which is lazy-loaded when the route is visited.
-            component: () => import(/* webpackChunkName: "detail" */ './views/Detail.vue')
+            component: () => import(/* webpackChunkName: "doc" */ './views/Doc.vue')
         }
     ]
 })

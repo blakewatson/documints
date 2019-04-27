@@ -8,3 +8,24 @@ html {
     padding: 0 20px;
     align-self: center;
 }
+
+.doctable-title-col {
+    min-width: 250px;
+}
+
+.doc {
+    margin-top: 2rem;
+}
+
+.doc-description {
+    width: 100%;
+    height: 500px;
+}
+
+.has-addons {
+    flex-wrap: wrap;
+
+    .label {
+        width: 100%;
+    }
+}
