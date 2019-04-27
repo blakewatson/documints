@@ -1,7 +1,7 @@
 <template>
     <section class="doc section">
         <div class="container">
-            <h1 class="title">{{ document.name }}</h1>
+            <DocName :document="document" />
 
             <div class="columns">
                 <div class="column is-two-thirds">
@@ -19,9 +19,10 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import DocName from '@/components/DocName.vue';
+import Description from '@/components/Description.vue';
 import TagsWidget from '@/components/TagsWidget.vue';
 import AccessWidget from '@/components/AccessWidget.vue';
-import Description from '@/components/Description.vue';
 import { Documint } from '@/types';
 
 export default Vue.extend({
@@ -40,9 +41,10 @@ export default Vue.extend({
     },
 
     components: {
+        DocName,
+        Description,
         TagsWidget,
-        AccessWidget,
-        Description
+        AccessWidget
     }
 })
 </script>

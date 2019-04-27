@@ -25,7 +25,7 @@ export default Vue.extend({
         saveDescription() {
             clearTimeout(this.timer);
             this.timer = setTimeout(() => {
-                this.$store.commit('saveDescription', {
+                this.$store.commit('setDescription', {
                     docId: this.document.id,
                     description: this.description
                 });

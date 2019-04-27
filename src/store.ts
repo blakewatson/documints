@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Vuex, { Store } from 'vuex';
-import { Documint, NewDescription, NewTags, NewAccess } from '@/types';
+import { Documint, NewName, NewDescription, NewTags, NewAccess } from '@/types';
 
 Vue.use(Vuex);
 
@@ -23,7 +23,14 @@ export default new Vuex.Store({
             state.documents.push(...payload);
         },
 
-        saveDescription(state, payload: NewDescription): void {
+        setName(state, payload: NewName): void {
+            var indexOfDoc = state.documents.findIndex((document: Documint): boolean =>  {
+                return document.id == payload.docId;
+            });
+            Vue.set(state.documents[indexOfDoc], 'name', payload.name);
+        },
+
+        setDescription(state, payload: NewDescription): void {
             var indexOfDoc = state.documents.findIndex((document: Documint): boolean =>  {
                 return document.id == payload.docId;
             });

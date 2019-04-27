@@ -11,6 +11,16 @@ interface Documint {
     tags: string[];
 }
 
+interface NewName {
+    docId: Uuid;
+    name: string;
+}
+
+interface NewDescription {
+    docId: Uuid;
+    description: string;
+}
+
 interface NewTags {
     docId: Uuid;
     tags: string[];
@@ -21,11 +31,6 @@ interface NewAccess {
     access: string[];
 }
 
-interface NewDescription {
-    docId: Uuid;
-    description: string;
-}
-
 interface AccessMap {
     [personName: string]: undefined | boolean
 }
@@ -33,6 +38,7 @@ interface AccessMap {
 export {
     Uuid,
     Documint,
+    NewName,
     NewDescription,
     NewAccess,
     NewTags,
