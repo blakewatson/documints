@@ -5,11 +5,7 @@
 
             <div class="columns">
                 <div class="column is-two-thirds">
-                    <div class="field">
-                        <div class="control">
-                            <textarea class="doc-description textarea is-primary" v-model="description"></textarea>
-                        </div>
-                    </div>
+                    <Description :document="document" />
                 </div>
 
                 <div class="column is-one-third">
@@ -25,6 +21,7 @@
 import Vue from 'vue';
 import TagsWidget from '@/components/TagsWidget.vue';
 import AccessWidget from '@/components/AccessWidget.vue';
+import Description from '@/components/Description.vue';
 import { Documint } from '@/types';
 
 export default Vue.extend({
@@ -44,11 +41,8 @@ export default Vue.extend({
 
     components: {
         TagsWidget,
-        AccessWidget
-    },
-
-    mounted() {
-        this.description = this.document.description;
+        AccessWidget,
+        Description
     }
 })
 </script>

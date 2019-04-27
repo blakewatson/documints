@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Vuex, { Store } from 'vuex';
-import { Documint, NewTags } from '@/types';
+import { Documint, NewDescription, NewTags } from '@/types';
 
 Vue.use(Vuex);
 
@@ -21,6 +21,13 @@ export default new Vuex.Store({
     mutations: {
         addDocuments(state, payload: Documint[]): void {
             state.documents.push(...payload);
+        },
+
+        saveDescription(state, payload: NewDescription): void {
+            var indexOfDoc = state.documents.findIndex((document: Documint): boolean =>  {
+                return document.id == payload.docId;
+            });
+            Vue.set(state.documents[indexOfDoc], 'description', payload.description);
         },
 
         setTags(state, payload: NewTags): void {
