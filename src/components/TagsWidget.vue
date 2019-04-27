@@ -1,5 +1,5 @@
 <template>
-    <div class="tags-widget">
+    <div class="tags-widget box">
         <form class="field has-addons" @submit.prevent="addTag">
             <label for="tags-input" class="label">Tags</label>
             <div class="control">
