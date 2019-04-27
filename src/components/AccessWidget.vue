@@ -72,6 +72,14 @@ export default Vue.extend({
             let map = { ...this.peopleMap };
             map[person] = !map[person];
             this.peopleMap = map;
+            this.save();
+        },
+
+        save() {
+            this.$store.commit('setAccess', {
+                docId: this.document.id,
+                access: [...this.usersWithAccess]
+            });
         }
     },
 

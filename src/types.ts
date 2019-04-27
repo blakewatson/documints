@@ -12,13 +12,18 @@ interface Documint {
 }
 
 interface NewTags {
-    docId: Uuid,
-    tags: string[]
+    docId: Uuid;
+    tags: string[];
+}
+
+interface NewAccess {
+    docId: Uuid;
+    access: string[];
 }
 
 interface NewDescription {
-    docId: Uuid,
-    description: string[]
+    docId: Uuid;
+    description: string;
 }
 
 interface AccessMap {
@@ -29,6 +34,7 @@ export {
     Uuid,
     Documint,
     NewDescription,
+    NewAccess,
     NewTags,
     AccessMap
 }

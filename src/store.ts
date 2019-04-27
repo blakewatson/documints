@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Vuex, { Store } from 'vuex';
-import { Documint, NewDescription, NewTags } from '@/types';
+import { Documint, NewDescription, NewTags, NewAccess } from '@/types';
 
 Vue.use(Vuex);
 
@@ -35,6 +35,13 @@ export default new Vuex.Store({
                 return document.id == payload.docId;
             });
             Vue.set(state.documents[indexOfDoc], 'tags', payload.tags);
+        },
+
+        setAccess(state, payload: NewAccess): void {
+            var indexOfDoc = state.documents.findIndex((document: Documint): boolean =>  {
+                return document.id == payload.docId;
+            });
+            Vue.set(state.documents[indexOfDoc], 'access', payload.access);
         }
     },
     actions: {
