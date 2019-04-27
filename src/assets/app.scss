@@ -22,15 +22,7 @@ html {
     height: 500px;
 }
 
-.has-addons {
-    flex-wrap: wrap;
-
-    .label {
-        width: 100%;
-    }
-}
-
-.access-tags {
+.tags, .access-tags {
     margin-top: 1em;
 }
 

@@ -1,12 +1,14 @@
 <template>
     <div class="tags-widget box">
-        <form class="field has-addons" @submit.prevent="addTag">
+        <form @submit.prevent="addTag">
             <label for="tags-input" class="label">Tags</label>
-            <div class="control">
-                <input class="input is-primary" v-model="tagInput" type="text" id="tags-input">
-            </div>
-            <div class="control">
-                <button class="button is-primary" @click="addTag">Add</button>
+            <div class="field has-addons">
+                <div class="control">
+                    <input class="input is-primary" v-model="tagInput" type="text" id="tags-input">
+                </div>
+                <div class="control">
+                    <button class="button is-primary" @click="addTag">Add</button>
+                </div>
             </div>
         </form>
         <div class="tags">
