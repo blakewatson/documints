@@ -6,7 +6,8 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
     state: {
-        documents: Array<Documint>()
+        documents: Array<Documint>(),
+        people: ['everyone', 'joe', 'mike', 'samantha']
     },
     getters: {
         getDocumentById(state): Function {

@@ -14,6 +14,7 @@
 
                 <div class="column is-one-third">
                     <TagsWidget :document="document" />
+                    <AccessWidget :document="document" />
                 </div>
             </div>
         </div>
@@ -23,6 +24,7 @@
 <script lang="ts">
 import Vue from 'vue';
 import TagsWidget from '@/components/TagsWidget.vue';
+import AccessWidget from '@/components/AccessWidget.vue';
 import { Documint } from '@/types';
 
 export default Vue.extend({
@@ -41,7 +43,8 @@ export default Vue.extend({
     },
 
     components: {
-        TagsWidget
+        TagsWidget,
+        AccessWidget
     },
 
     mounted() {

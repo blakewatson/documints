@@ -16,8 +16,13 @@ interface NewTags {
     tags: string[]
 }
 
+interface AccessMap {
+    [personName: string]: undefined | boolean
+}
+
 export {
     Uuid,
     Documint,
-    NewTags
+    NewTags,
+    AccessMap
 }
