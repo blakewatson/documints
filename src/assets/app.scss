@@ -9,6 +9,18 @@ html {
     align-self: center;
 }
 
+th {
+    min-width: 70px;
+}
+
+.sort-toggle {
+    cursor: pointer;
+
+    &:hover {
+        opacity: 0.75;
+    }
+}
+
 .doctable-title-col {
     min-width: 250px;
 }
