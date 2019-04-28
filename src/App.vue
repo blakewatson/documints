@@ -7,6 +7,14 @@
             </div>
         </nav>
         <router-view/>
+        <footer class="">
+            <div class="content has-text-centered has-text-grey-dark">
+                <p>
+                    A <em>Vue</em> + <em>TypeScript</em> experiment.<br>
+                    Made with ☕️,🍟, and ❤️ by <a href="https://www.blakewatson.com/">Blake Watson</a>.
+                </p>
+            </div>
+        </footer>
     </div>
 </template>
 
