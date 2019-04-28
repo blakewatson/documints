@@ -23,6 +23,13 @@ export default new Vuex.Store({
                     return document.id === id;
                 });
             }
+        },
+
+        uniqueId(state): number {
+            return state.documents.reduce((highest: number, document: Documint): number => {
+                if(highest > document.id) return highest;
+                return document.id + 1;
+            }, 0);
         }
     },
     mutations: {
@@ -73,6 +80,27 @@ export default new Vuex.Store({
                         context.commit('addDocuments', documents);
                         resolve();
                     });
+            });
+        },
+
+        newDocument(context) {
+            return new Promise((resolve, reject) => {
+                // get unique id
+                const id: number = context.getters.uniqueId;
+                // create new document
+                const doc: Documint = {
+                    'access': [],
+                    'id': id,
+                    'name': 'Untitled',
+                    'description': '',
+                    'icon': "<i class='fa fa-2x fa-file-word'></i>",
+                    'expirationDate': '',
+                    'lastViewed': '',
+                    'tags': []
+                };
+                // add document to store
+                context.commit('addDocuments', [doc]);
+                resolve(doc);
             });
         },
 

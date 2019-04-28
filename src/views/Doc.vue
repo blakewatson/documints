@@ -14,6 +14,8 @@
                     <AccessWidget :document="document" />
                 </div>
             </div>
+
+            <router-link to="/" class="button is-medium is-primary">Save and back to documents</router-link>
         </div>
     </section>
 </template>
