@@ -6,10 +6,26 @@ import {
     NewDescription,
     NewExpiration,
     NewTags,
-    NewAccess
+    NewAccess,
+    Uuid
 } from '@/types';
 
 Vue.use(Vuex);
+
+function padNum(num: number, places: number = 2): string {
+    let numStr: string = num.toString();
+    if(numStr.length >= places) return numStr;
+    for(let i = 0; numStr.length < places; i++) {
+        numStr = `0${numStr}`;
+    }
+    return numStr;
+}
+
+function getIndexOfDocById(documents: Documint[], id: Uuid): number {
+    return documents.findIndex((document: Documint): boolean =>  {
+        return document.id == id;
+    });
+}
 
 export default new Vuex.Store({
     state: {
@@ -38,38 +54,35 @@ export default new Vuex.Store({
         },
 
         setName(state, payload: NewName): void {
-            var indexOfDoc = state.documents.findIndex((document: Documint): boolean =>  {
-                return document.id == payload.docId;
-            });
+            const indexOfDoc: number = getIndexOfDocById(state.documents, payload.docId);
             Vue.set(state.documents[indexOfDoc], 'name', payload.name);
         },
 
         setDescription(state, payload: NewDescription): void {
-            var indexOfDoc = state.documents.findIndex((document: Documint): boolean =>  {
-                return document.id == payload.docId;
-            });
+            const indexOfDoc: number = getIndexOfDocById(state.documents, payload.docId);
             Vue.set(state.documents[indexOfDoc], 'description', payload.description);
         },
 
         setExpiration(state, payload: NewExpiration): void {
-            var indexOfDoc = state.documents.findIndex((document: Documint): boolean =>  {
-                return document.id == payload.docId;
-            });
+            const indexOfDoc: number = getIndexOfDocById(state.documents, payload.docId);
             Vue.set(state.documents[indexOfDoc], 'expirationDate', payload.expiration);
         },
 
         setTags(state, payload: NewTags): void {
-            var indexOfDoc = state.documents.findIndex((document: Documint): boolean =>  {
-                return document.id == payload.docId;
-            });
+            const indexOfDoc: number = getIndexOfDocById(state.documents, payload.docId);
             Vue.set(state.documents[indexOfDoc], 'tags', payload.tags);
         },
 
         setAccess(state, payload: NewAccess): void {
-            var indexOfDoc = state.documents.findIndex((document: Documint): boolean =>  {
-                return document.id == payload.docId;
-            });
+            const indexOfDoc: number = getIndexOfDocById(state.documents, payload.docId);
             Vue.set(state.documents[indexOfDoc], 'access', payload.access);
+        },
+
+        resetLastViewed(state, payload: { docId: number }): void {
+            const indexOfDoc: number = getIndexOfDocById(state.documents, payload.docId);
+            const now: Date = new Date(Date.now());
+            const lastViewed: string = `${now.getFullYear()}/${padNum(now.getMonth())}/${padNum(now.getDate())}`;
+            Vue.set(state.documents[indexOfDoc], 'lastViewed', lastViewed);
         }
     },
     actions: {

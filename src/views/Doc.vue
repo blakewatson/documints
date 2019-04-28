@@ -50,6 +50,12 @@ export default Vue.extend({
         DateWidget,
         TagsWidget,
         AccessWidget
+    },
+
+    mounted() {
+        this.$store.commit('resetLastViewed', {
+            docId: this.document.id
+        });
     }
 })
 </script>

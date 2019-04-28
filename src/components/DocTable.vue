@@ -21,7 +21,12 @@
                     </tr>
                     <tr v-for="doc in sortedDocuments" :key="doc.id" v-if="documents.length">
                         <td>{{ doc.id }}</td>
-                        <td><router-link :to="{ name: 'doc', params: { id: doc.id } }">{{ doc.name }}</router-link></td>
+                        <td>
+                            <router-link class="doc-title-link" :to="{ name: 'doc', params: { id: doc.id } }">
+                                <span class="doc-icon" v-html="doc.icon"></span>
+                                {{ doc.name }}
+                            </router-link>
+                        </td>
                         <td>{{ doc.description }}</td>
                         <td>
                             <div class="tags">

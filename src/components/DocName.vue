@@ -1,8 +1,10 @@
 <template>
     <header class="doc-header">
         <template v-if="!editMode">
-            <h1 class="title">{{ document.name }}</h1>
-            <button class="button is-small is-primary" @click="editMode = true">Edit Name</button>
+            <h1 class="title"><span class="doc-icon has-text-primary" v-html="document.icon"></span>{{ document.name }}</h1>
+            <button class="button is-small is-white has-text-primary" @click="editMode = true">
+                <i class="fas fa-edit"></i>&nbsp;&nbsp;<span class="has-text-dark">Edit</span>
+            </button>
         </template>
 
         <form v-if="editMode" @submit.prevent="save">
@@ -11,7 +13,7 @@
                     <input type="text" class="input is-medium" v-model="name">
                 </div>
                 <div class="control">
-                    <button type="submit" class="button is-medium is-primary">Save</button>
+                    <button type="submit" class="button is-medium is-primary">Done</button>
                 </div>
             </div>
         </form>
