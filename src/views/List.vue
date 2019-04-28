@@ -46,7 +46,7 @@ export default Vue.extend({
 
             // return return a filtered array of documents
             return this.documents.filter((document: Documint): boolean => {
-                const searchableDoc: string = JSON.stringify(document).toLowerCase();
+                const searchableDoc: string = Object.values(document).join(' ').toLowerCase();
                 return searchableDoc.includes(term);
             })
         }
