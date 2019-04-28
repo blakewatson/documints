@@ -21,6 +21,11 @@ interface NewDescription {
     description: string;
 }
 
+interface NewExpiration {
+    docId: Uuid;
+    expiration: string;
+}
+
 interface NewTags {
     docId: Uuid;
     tags: string[];
@@ -40,6 +45,7 @@ export {
     Documint,
     NewName,
     NewDescription,
+    NewExpiration,
     NewAccess,
     NewTags,
     AccessMap

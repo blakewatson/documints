@@ -9,6 +9,7 @@
                 </div>
 
                 <div class="column is-one-third">
+                    <DateWidget :document="document" />
                     <TagsWidget :document="document" />
                     <AccessWidget :document="document" />
                 </div>
@@ -21,6 +22,7 @@
 import Vue from 'vue';
 import DocName from '@/components/DocName.vue';
 import Description from '@/components/Description.vue';
+import DateWidget from '@/components/DateWidget.vue';
 import TagsWidget from '@/components/TagsWidget.vue';
 import AccessWidget from '@/components/AccessWidget.vue';
 import { Documint } from '@/types';
@@ -43,6 +45,7 @@ export default Vue.extend({
     components: {
         DocName,
         Description,
+        DateWidget,
         TagsWidget,
         AccessWidget
     }

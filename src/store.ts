@@ -1,6 +1,13 @@
 import Vue from 'vue';
 import Vuex, { Store } from 'vuex';
-import { Documint, NewName, NewDescription, NewTags, NewAccess } from '@/types';
+import {
+    Documint,
+    NewName,
+    NewDescription,
+    NewExpiration,
+    NewTags,
+    NewAccess
+} from '@/types';
 
 Vue.use(Vuex);
 
@@ -35,6 +42,13 @@ export default new Vuex.Store({
                 return document.id == payload.docId;
             });
             Vue.set(state.documents[indexOfDoc], 'description', payload.description);
+        },
+
+        setExpiration(state, payload: NewExpiration): void {
+            var indexOfDoc = state.documents.findIndex((document: Documint): boolean =>  {
+                return document.id == payload.docId;
+            });
+            Vue.set(state.documents[indexOfDoc], 'expirationDate', payload.expiration);
         },
 
         setTags(state, payload: NewTags): void {
