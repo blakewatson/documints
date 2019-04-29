@@ -68,7 +68,7 @@ export default Vue.extend({
     data() {
         return {
             sortBy: 'id',
-            sort: 'ASC',
+            sort: 'DESC',
             page: 1,
             show: 10
         }
