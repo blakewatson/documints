@@ -2,7 +2,11 @@
     <div id="app">
         <nav class="navbar has-background-dark has-text-white" aria-label="Main Navigation">
             <div class="navbar-brand">
-                <h1 class="site-title title is-marginless has-text-white">Docu<span class="has-text-primary">Mints</span></h1>
+                <h1 class="site-title title is-marginless has-text-white">
+                    <router-link to="/" class="has-text-white">
+                        Docu<span class="has-text-primary">Mints</span>
+                    </router-link>
+                </h1>
                 <router-link to="/" class="navbar-item has-text-white">List</router-link>
             </div>
         </nav>
