@@ -4,6 +4,13 @@
             <h2 class="card-header-title is-size-4 has-text-white">All Documents</h2>
         </div>
         <div class="card-content">
+            <PaginationControls
+                :page="page"
+                :show="show"
+                :total="totalPages"
+                @prev="prevPage"
+                @next="nextPage"
+                @show="setShow" />
             <table class="table is-fullwidth">
                 <thead>
                     <tr class="is-size-7">
@@ -19,7 +26,7 @@
                     <tr v-if="documents.length === 0">
                         <td colspan="5">No documents match your search.</td>
                     </tr>
-                    <tr v-for="doc in sortedDocuments" :key="doc.id" v-if="documents.length">
+                    <tr v-for="doc in pagedDocuments" :key="doc.id" v-if="documents.length">
                         <td>{{ doc.id }}</td>
                         <td>
                             <router-link class="doc-title-link" :to="{ name: 'doc', params: { id: doc.id } }">
@@ -38,6 +45,13 @@
                     </tr>
                 </tbody>
             </table>
+            <PaginationControls
+                :page="page"
+                :show="show"
+                :total="totalPages"
+                @prev="prevPage"
+                @next="nextPage"
+                @show="setShow" />
         </div>
     </div>
 </template>
@@ -45,6 +59,7 @@
 <script lang="ts">
 import Vue from 'vue';
 import SortToggle from '@/components/SortToggle.vue';
+import PaginationControls from '@/components/PaginationControls.vue';
 import { Documint } from '../types';
 
 export default Vue.extend({
@@ -53,7 +68,9 @@ export default Vue.extend({
     data() {
         return {
             sortBy: 'id',
-            sort: 'ASC'
+            sort: 'ASC',
+            page: 1,
+            show: 10
         }
     },
     computed: {
@@ -76,6 +93,20 @@ export default Vue.extend({
                 sortedDocs.reverse();
             }
             return sortedDocs;
+        },
+
+        pagedDocuments(): Documint[] {
+            const offset: number = (this.page - 1) * this.show;
+            return [...this.sortedDocuments].slice(offset, offset + this.show);
+        },
+
+        totalPages(): number {
+            return Math.ceil(this.sortedDocuments.length / this.show);
+        }
+    },
+    watch: {
+        documents() {
+            this.page = 1;
         }
     },
     methods: {
@@ -94,10 +125,23 @@ export default Vue.extend({
             } else {
                 this.sort = 'ASC';
             }
+        },
+
+        prevPage() {
+            this.page--;
+        },
+
+        nextPage() {
+            this.page++;
+        },
+
+        setShow(value: number) {
+            this.show = value;
         }
     },
     components: {
-        SortToggle
+        SortToggle,
+        PaginationControls
     }
 });
 </script>
