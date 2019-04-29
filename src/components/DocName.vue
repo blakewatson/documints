@@ -10,7 +10,7 @@
         <form v-if="editMode" @submit.prevent="save">
             <div class="field has-addons">
                 <div class="control doc-name-input">
-                    <input type="text" class="input is-medium" v-model="name">
+                    <input type="text" class="input is-medium is-primary" v-model="name">
                 </div>
                 <div class="control">
                     <button type="submit" class="button is-medium is-primary">Done</button>
