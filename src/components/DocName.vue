@@ -3,7 +3,7 @@
         <template v-if="!editMode">
             <h1 class="title"><span class="doc-icon has-text-primary" v-html="document.icon"></span>{{ document.name }}</h1>
             <button class="button is-small is-white has-text-primary" @click="editMode = true">
-                <i class="fas fa-edit"></i>&nbsp;&nbsp;<span class="has-text-dark">Edit</span>
+                <i class="fas fa-pencil-alt"></i>&nbsp;&nbsp;<span class="has-text-dark">Edit</span>
             </button>
         </template>
 
